@@ -28,7 +28,7 @@ class Login_Test
             int LastRow = Fuction.LastRowExcel();
             for (int iteration = 2; iteration <= LastRow; iteration++)
             {
-                if (Fuction.DataTable(iteration,"RUN_TEST") != "")
+                if (Fuction.DataTable(iteration,"RUN") != null)
                 {
                     WebDriverFactory.Driver.Navigate().GoToUrl("https://practicetestautomation.com/practice-test-login/");
 
@@ -44,7 +44,6 @@ class Login_Test
             // Quit the driver
             WebDriverFactory.Driver.Quit();
         }
-
         catch (NoSuchElementException)
         {
             // Create a new instance and ExtentReports object

@@ -39,7 +39,14 @@ namespace ConsoleApp1.Lib
             // Get the column by the header name
             int columnIndex = worksheet.Cells["1:1"].FirstOrDefault(cell => cell.Value.ToString() == columnHeader).Start.Column;
             var column = worksheet.Cells[Row, columnIndex].Value;
-            return column.ToString();
+            if (column != null)
+            {
+                return column.ToString();
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public static int LastRowExcel()
