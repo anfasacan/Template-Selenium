@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using AventStack.ExtentReports;
 using System.Xml.Linq;
 using static ConsoleApp1.Lib.Fuction;
+using OpenQA.Selenium.DevTools.V108.Network;
 
 namespace ConsoleApp1.Lib
 {
@@ -32,25 +33,8 @@ namespace ConsoleApp1.Lib
             Report_Lib.ScreenShot(Login, "Fill Field Username and Password", "info");
 
             BtnSubmit.Click();
-            //Check If Object Exist
-            try
-            {
-                IWebElement element = WebDriverFactory.Driver.FindElement(By.ClassName("post-title"));
-                Report_Lib.ScreenShot(Login, "Click Button Login", "passed");
-            }
-            catch (NoSuchElementException)
-            {
-                Report_Lib.ScreenShot(Login, "Login Failed", "failed");
-
-                // Flush the report to write the test results to the file
-                extent.Flush();
-
-                // Quit the driver
-                WebDriverFactory.Driver.Quit();
-
-                //Stop Running
-                Environment.Exit(0);
-            }
+            IWebElement element = WebDriverFactory.Driver.FindElement(By.ClassName("post-title"));
+            Report_Lib.ScreenShot(Login, "Click Button Login", "passed");
         }
 
         public static void Logout(ExtentReports extent)

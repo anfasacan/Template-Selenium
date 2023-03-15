@@ -22,7 +22,7 @@ namespace ConsoleApp1.Lib
         {
             // Take a screenshot and save it to a file and Add the screenshot to the test report
             Thread.Sleep(2000);
-            screenshotPath = "E:/Work/Learn/Selenium/ConsoleApp1/screenshot/screenshot" + DateTime.Now.ToString().Replace("/", "-").Replace(":", "-") + ".png";
+            screenshotPath = Fuction.PathProject() + "/screenshot/screenshot" + DateTime.Now.ToString().Replace("/", "-").Replace(":", "-") + ".png";
             screenshotDriver.GetScreenshot().SaveAsFile(screenshotPath);
             //Console.WriteLine(Information);
             if (Information == "passed")
@@ -48,7 +48,7 @@ namespace ConsoleApp1.Lib
         }
         public static void ExtentReports()
         {
-            string reportPath = @"E:/Work/Learn/Selenium/ConsoleApp1/Report/" + DateTime.Now.ToString().Replace("/", "-").Replace(":", "-") + ".html";
+            string reportPath = Fuction.PathProject() + "/Report/" + DateTime.Now.ToString().Replace("/", "-").Replace(":", "-") + ".html";
             extent = new ExtentReports();
             var htmlReporter = new ExtentHtmlReporter(reportPath);
             extent.AttachReporter(htmlReporter);

@@ -14,6 +14,12 @@ namespace ConsoleApp1.Lib
 {
     class Fuction
     {
+        public static string PathProject()
+        {
+            string workingDirectory = Environment.CurrentDirectory;
+            string projectDirectory = Directory.GetParent(workingDirectory).Parent.Parent.Parent.FullName;
+            return projectDirectory.Replace("\\", "/");
+        }
         public static class WebDriverFactory
         {
             private static readonly ThreadLocal<IWebDriver> threadDriver = new ThreadLocal<IWebDriver>(() =>
