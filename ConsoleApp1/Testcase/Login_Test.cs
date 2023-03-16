@@ -11,7 +11,14 @@ using System.Security.Cryptography.X509Certificates;
 class Login_Test
 {
     public static ExtentReports extent;
-    static void Main(string[] args)
+    public static string ExcelFile()
+    {
+        String ExcelFileName = "Book1.xlsx";
+        String ExcelFileSheet = "Sheet1";
+        return ExcelFileName + "||" + ExcelFileSheet;
+    }
+
+    public static void Login_test()
     {
         //Start
        

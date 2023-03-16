@@ -36,9 +36,9 @@ namespace ConsoleApp1.Lib
         public static string DataTable(int Row, String columnHeader)
         {
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
-            FileInfo file = new FileInfo(@"E:\Work\Learn\Selenium\ConsoleApp1\Excel\Book1.xlsx");
+            FileInfo file = new FileInfo(Fuction.PathProject() + "/Excel/" + Main_Test.FileExcel()[0]);
             ExcelPackage package = new ExcelPackage(file);
-            ExcelWorksheet worksheet = package.Workbook.Worksheets["Sheet1"];
+            ExcelWorksheet worksheet = package.Workbook.Worksheets[Main_Test.FileExcel()[1]];
             int lastRow = worksheet.Dimension.End.Row;
             int lastCol = worksheet.Dimension.End.Column;
 
@@ -58,9 +58,9 @@ namespace ConsoleApp1.Lib
         public static int LastRowExcel()
         {
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
-            FileInfo file = new FileInfo(@"E:\Work\Learn\Selenium\ConsoleApp1\Excel\Book1.xlsx");
+            FileInfo file = new FileInfo(Fuction.PathProject() + "/Excel/" + Main_Test.FileExcel()[0]);
             ExcelPackage package = new ExcelPackage(file);
-            ExcelWorksheet worksheet = package.Workbook.Worksheets["Sheet1"];
+            ExcelWorksheet worksheet = package.Workbook.Worksheets[Main_Test.FileExcel()[1]];
             int lastRow = worksheet.Dimension.End.Row;
 
             return lastRow;
